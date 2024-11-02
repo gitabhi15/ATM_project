@@ -1,5 +1,5 @@
 public abstract class BalanceEnquiry{
-    public final String PIN;
+    public String PIN;
     public float balance;
     public BalanceEnquiry(){
         this.balance = 5000000;
