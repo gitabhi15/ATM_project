@@ -3,7 +3,6 @@ import java.util.*;
 public class ChangePin extends PIN_Change{
 
     Scanner sc = new Scanner(System.in);
-    BalanceEnquiry be;
     HomeScreen hs;
     String newPIN, dummyPin;
 
@@ -18,13 +17,13 @@ public class ChangePin extends PIN_Change{
             System.err.println("Oops! Something went wrong. Please try again later!" + e.getMessage());
         }
 
-        if(dummyPin.equals(be.PIN)){
+        if(dummyPin.equals(BalanceEnquiry.PIN)){
             System.out.println("Please enter your new PIN to proceed:");
             newPIN = sc.nextLine();
-            be.PIN = newPIN;
+            BalanceEnquiry.PIN = newPIN;
             System.out.println("Please re-enter your new PIN to confirm:");
             String dummyPin2 = sc.nextLine();
-            if(dummyPin2.equals(be.PIN)){
+            if(dummyPin2.equals(BalanceEnquiry.PIN)){
                 System.out.println("Thank you! Your PIN has now been updated.\nPlease wait a few seconds.....");
             }
             else{
