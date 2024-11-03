@@ -14,9 +14,9 @@ public class CheckBalance extends BalanceEnquiry{
         System.out.println("Please enter your PIN:");
         dummyPin = sc.nextLine();
 
-        if(dummyPin.equals(PIN)){
+        if(dummyPin.equals(BalanceEnquiry.PIN)){
             System.out.println("Your account balance is:");
-            System.out.println("\t\t" + balance);
+            System.out.println("\t\t" + BalanceEnquiry.balance);
 
             try{
                 Thread.sleep(3000);
@@ -29,7 +29,7 @@ public class CheckBalance extends BalanceEnquiry{
             response = sc.nextLine();
             
             if(response == "Yes"){
-                System.out.println("Account Balance: " + balance);
+                System.out.println("Account Balance: " + BalanceEnquiry.balance);
             }
             else{
                 System.out.println("Thank you for your patience!");
