@@ -1,3 +1,3 @@
-public class CashWithdrawl {
-    
+public abstract class CashWithdrawl {
+    public abstract void withdrawCash();
 }
