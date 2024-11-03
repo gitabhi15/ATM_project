@@ -1,15 +1,15 @@
 public abstract class BalanceEnquiry{
-    public String PIN;
-    public float balance;
+    public static String PIN;
+    public static float balance;
     public BalanceEnquiry(){
-        this.balance = 5000000;
-        this.PIN = "5403";
+        balance = 5000000;
+        PIN = "5403";
     }
     public String getPIN(){
-        return this.PIN;
+        return PIN;
     }
     public float getBalance(){
-        return this.balance;
+        return balance;
     }
     public abstract void balance_enquiry();
 }
