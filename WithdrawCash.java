@@ -20,7 +20,7 @@ public class WithdrawCash extends CashWithdrawl {
                 break;
             }
 
-                System.out.println("Would you like to view yor balance?");
+                System.out.println("Would you like to view your balance?");
                 String response = sc.nextLine();
 
                 if(response.equalsIgnoreCase("Y")){
