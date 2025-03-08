@@ -1,11 +1,60 @@
-public class HomeScreen{
+import java.util.Scanner;
 
-    public void home_page_display(){
-        System.out.println("Welcome to HFDC Bank!\nPlease select an option below to begin:");
-        System.out.println("1.Balance Enquiry\t2.Cash Withdrawl");
-        System.out.println("3.Mobile Recharge\t4.Open Fixed Deposit");
-        System.out.println("5.PIN Change\t\t6.Ultra Fast Cash");
-        System.out.println("7.Utility Bill Payment");
+public class HomeScreen {
+    Scanner sc = new Scanner(System.in);
+
+    public void home_page_display() {
+        System.out.println("1. Check Balance");
+        System.out.println("2. Withdraw Cash");
+        System.out.println("3. PIN Change");
+        System.out.println("4. Ultra Fast Cash");
+        System.out.println("5. Utility Bill Payment");
+        System.out.println("6. Update Mobile Phone Number");
+        System.out.println("7. Exit");
+
+        System.out.println("Please select an option:");
+        int choice = sc.nextInt();
+        sc.nextLine();  // Consume newline
+
+        switch (choice) {
+            case 1:
+                CheckBalance cb = new CheckBalance();
+                cb.balance_enquiry();
+                break;
+
+            case 2:
+                WithdrawCash wc = new WithdrawCash();
+                wc.withdrawCash();
+                break;
+
+            case 3:
+                ChangePin cp = new ChangePin();
+                cp.ChangePIN();
+                break;
+
+            case 4:
+                UltraFastCash ufc = new UltraFastCash();
+                ufc.withdrawCash();
+                break;
+
+            case 5:
+                PayBills pb = new PayBills();
+                pb.selectBillToPay();
+                break;
+
+            case 6:
+                updatePhoneNumber umn = new updatePhoneNumber();
+                umn.updateNumber();
+                break;
+            
+            case 7:
+                System.out.println("Thank you for using Axis Bank ATM Services. Have a great day!");
+                System.exit(0);
+                break;
+
+            default:
+                System.out.println("Invalid option. Please try again.");
+                home_page_display();  // Return to home page on invalid input
+        }
     }
-    
 }
