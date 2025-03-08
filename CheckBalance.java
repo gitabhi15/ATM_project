@@ -1,52 +1,29 @@
-import java.util.*;
+import java.util.Scanner;
 
-public class CheckBalance extends BalanceEnquiry{
-    
+public class CheckBalance{
     Scanner sc = new Scanner(System.in);
-    String dummyPin, response;
-    HomeScreen hs;
+    HomeScreen hs = new HomeScreen(); // Initialize HomeScreen instance
+    String dummyPin;
 
-    public CheckBalance(){
-        super();
-    }
+    public void balance_enquiry() {
+        System.out.println("Please enter your PIN to proceed:");
+        dummyPin = sc.nextLine().trim();
 
-    public void balance_enquiry(){
-        System.out.println("Please enter your PIN:");
-        dummyPin = sc.nextLine();
+        if (dummyPin.equals(BankDetails.PIN)) {
+            System.out.println("Account Balance: " + BankDetails.balance);
+            System.out.println("Would you like to print the receipt? (Yes/No)");
+            String response = sc.nextLine();
 
-        if(dummyPin.equals(BalanceEnquiry.PIN)){
-            System.out.println("Your account balance is:");
-            System.out.println("\t\t" + BalanceEnquiry.balance);
-
-            try{
-                Thread.sleep(3000);
-            }
-            catch(InterruptedException e){
-                System.err.println("Oops! Something went wrong. Please try again later!" + e.getMessage());
+            if (response.equalsIgnoreCase("Yes")) { // Corrected string comparison
+                System.out.println("Printing receipt...");
+            } else {
+                System.out.println("Thank you for using Axis Bank Services!");
             }
 
-            System.out.println("Would you like to print a receipt?");
-            response = sc.nextLine();
-            
-            if(response == "Yes"){
-                System.out.println("Account Balance: " + BalanceEnquiry.balance);
-            }
-            else{
-                System.out.println("Thank you for your patience!");
-                
-                try{
-                    Thread.sleep(2000);
-                }
-                catch(InterruptedException e){
-                    System.err.println("Oops! Something went wrong. Please try again later!" + e.getMessage());
-                }
-
-                hs.home_page_display();
-            }
-        }
-        else{
-            System.out.println("Oops! Something went wrong. Please try again later!");
-            hs.home_page_display();
+            hs.home_page_display(); // Return to home page after completing the balance enquiry
+        } else {
+            System.out.println("Invalid PIN. Please try again.");
+            hs.home_page_display(); // Return to home page on invalid PIN
         }
     }
 }
