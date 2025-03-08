@@ -3,27 +3,62 @@ import java.util.*;
 public class PayBills extends UtilityBillPayment{
 
     Scanner sc = new Scanner(System.in);
-    String dummyPin, response;
+    String dummyPin, response, realPin = BankDetails.PIN;
     int option;
-    HomeScreen hs;
+    HomeScreen hs = new HomeScreen();
     float waterBill, mobileBill, electricityBill, creditCardBill; 
 
     public void selectBillToPay() {
+        System.out.println("1. Water Bill");
+        System.out.println("2. Mobile Bill");
+        System.out.println("3. Electricity Bill");
+        System.out.println("4. Credit Card Bill");
         System.out.println("Please select which bill you would like to pay:");
+        option = sc.nextInt();
+        sc.nextLine();
 
         switch(option){
-            case 1 : System.out.println("Please enter the bill amount:"); waterBill = sc.nextFloat(); payWaterBill(waterBill); break;
-            case 2 : System.out.println("Please enter the bill amount:"); mobileBill = sc.nextFloat(); payMobileBill(mobileBill); break;
-            case 3 : System.out.println("Please enter the bill amount:"); electricityBill = sc.nextFloat(); payElectricityBill(electricityBill); break;
-            case 4 : System.out.println("Please enter the bill amount:"); creditCardBill = sc.nextFloat(); payCreditCardBill(creditCardBill); break;
-            default: System.out.println("Invalid option. Please try again."); hs.home_page_display(); break;
+
+            case 1 : 
+                System.out.println("Please enter the bill amount:"); 
+                waterBill = sc.nextFloat();
+                sc.nextLine(); 
+                payWaterBill(waterBill); 
+                break;
+
+            case 2 : 
+                System.out.println("Please enter the bill amount:"); 
+                mobileBill = sc.nextFloat(); 
+                sc.nextLine();
+                payMobileBill(mobileBill); 
+                break;
+
+            case 3 :
+                System.out.println("Please enter the bill amount:");
+                electricityBill = sc.nextFloat(); 
+                sc.nextLine();
+                payElectricityBill(electricityBill); 
+                break;
+
+            case 4 : 
+                System.out.println("Please enter the bill amount:"); 
+                creditCardBill = sc.nextFloat(); 
+                sc.nextLine();
+                payCreditCardBill(creditCardBill); 
+                break;
+
+            default: 
+                System.out.println("Invalid option. Please try again."); 
+                hs.home_page_display(); 
+                break;
         }
     }
 
     public float payWaterBill(float waterBill){
         System.out.println("Please enter your PIN:");
         dummyPin = sc.nextLine();
-        if(dummyPin.equals(BalanceEnquiry.PIN)){
+        //sc.nextLine();
+        if(dummyPin.equals(realPin)){
             System.out.println("Please wait while we process your payment...");
 
             try{
@@ -34,8 +69,9 @@ public class PayBills extends UtilityBillPayment{
             }
 
             System.out.println("Your water bill of " + waterBill + " has been successfully paid!");
-            BalanceEnquiry.balance -= waterBill;
-            return BalanceEnquiry.balance;
+            BankDetails.balance -= waterBill;
+            hs.home_page_display();
+            return BankDetails.balance;
         }
         else{
             System.out.println("Oops! Something went wrong. Please try again later!");
@@ -46,7 +82,7 @@ public class PayBills extends UtilityBillPayment{
     public float payMobileBill(float mobileBill){
         System.out.println("Please enter your PIN:");
         dummyPin = sc.nextLine();  
-        if(dummyPin.equals(BalanceEnquiry.PIN)){
+        if(dummyPin.equals(realPin)){
             System.out.println("Please wait while we process your payment...");
 
             try{
@@ -57,8 +93,8 @@ public class PayBills extends UtilityBillPayment{
             }
 
             System.out.println("Your mobile bill of " + mobileBill + " has been successfully paid!");
-            BalanceEnquiry.balance -= mobileBill;
-            return BalanceEnquiry.balance;
+            BankDetails.balance -= mobileBill;
+            return BankDetails.balance;
         }
         else{
             System.out.println("Oops! Something went wrong. Please try again later!");
@@ -70,7 +106,7 @@ public class PayBills extends UtilityBillPayment{
     public float payElectricityBill(float electricityBill){
         System.out.println("Please enter your PIN:");
         dummyPin = sc.nextLine();
-        if(dummyPin.equals(BalanceEnquiry.PIN)){
+        if(dummyPin.equals(realPin)){
             System.out.println("Please wait while we process your payment...");
 
             try{
@@ -81,8 +117,8 @@ public class PayBills extends UtilityBillPayment{
             }
 
             System.out.println("Your electricity bill of " + electricityBill + " has been successfully paid!");
-            BalanceEnquiry.balance -= electricityBill;
-            return BalanceEnquiry.balance;
+            BankDetails.balance -= electricityBill;
+            return BankDetails.balance;
         }
         else{
             System.out.println("Oops! Something went wrong. Please try again later!");
@@ -94,7 +130,7 @@ public class PayBills extends UtilityBillPayment{
     public float payCreditCardBill(float creditCardBill){
         System.out.println("Please enter your PIN:");
         dummyPin = sc.nextLine();
-        if(dummyPin.equals(BalanceEnquiry.PIN)){
+        if(dummyPin.equals(realPin)){
             System.out.println("Please wait while we process your payment...");
 
             try{
@@ -105,8 +141,8 @@ public class PayBills extends UtilityBillPayment{
             }
 
             System.out.println("Your credit card bill of " + creditCardBill + " has been successfully paid!");
-            BalanceEnquiry.balance -= creditCardBill;
-            return BalanceEnquiry.balance;
+            BankDetails.balance -= creditCardBill;
+            return BankDetails.balance;
         }
         else{
             System.out.println("Oops! Something went wrong. Please try again later!");
