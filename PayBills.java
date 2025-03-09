@@ -54,7 +54,7 @@ public class PayBills extends UtilityBillPayment{
         }
     }
 
-    public float payWaterBill(float waterBill){
+    public void payWaterBill(float waterBill){
         System.out.println("Please enter your PIN:");
         dummyPin = sc.nextLine();
         //sc.nextLine();
@@ -71,15 +71,13 @@ public class PayBills extends UtilityBillPayment{
             System.out.println("Your water bill of " + waterBill + " has been successfully paid!");
             BankDetails.balance -= waterBill;
             hs.home_page_display();
-            return BankDetails.balance;
         }
         else{
             System.out.println("Oops! Something went wrong. Please try again later!");
             hs.home_page_display();
         }
-        return 0;
     }
-    public float payMobileBill(float mobileBill){
+    public void payMobileBill(float mobileBill){
         System.out.println("Please enter your PIN:");
         dummyPin = sc.nextLine();  
         if(dummyPin.equals(realPin)){
@@ -94,16 +92,15 @@ public class PayBills extends UtilityBillPayment{
 
             System.out.println("Your mobile bill of " + mobileBill + " has been successfully paid!");
             BankDetails.balance -= mobileBill;
-            return BankDetails.balance;
+            hs.home_page_display();
         }
         else{
             System.out.println("Oops! Something went wrong. Please try again later!");
             hs.home_page_display();
         }
-        return 0;
     }
 
-    public float payElectricityBill(float electricityBill){
+    public void payElectricityBill(float electricityBill){
         System.out.println("Please enter your PIN:");
         dummyPin = sc.nextLine();
         if(dummyPin.equals(realPin)){
@@ -118,16 +115,15 @@ public class PayBills extends UtilityBillPayment{
 
             System.out.println("Your electricity bill of " + electricityBill + " has been successfully paid!");
             BankDetails.balance -= electricityBill;
-            return BankDetails.balance;
+            hs.home_page_display();
         }
         else{
             System.out.println("Oops! Something went wrong. Please try again later!");
             hs.home_page_display();
         }
-        return 0;
     }
 
-    public float payCreditCardBill(float creditCardBill){
+    public void payCreditCardBill(float creditCardBill){
         System.out.println("Please enter your PIN:");
         dummyPin = sc.nextLine();
         if(dummyPin.equals(realPin)){
@@ -142,12 +138,11 @@ public class PayBills extends UtilityBillPayment{
 
             System.out.println("Your credit card bill of " + creditCardBill + " has been successfully paid!");
             BankDetails.balance -= creditCardBill;
-            return BankDetails.balance;
+            hs.home_page_display();
         }
         else{
             System.out.println("Oops! Something went wrong. Please try again later!");
             hs.home_page_display();
         }
-        return 0;
     }   
 }
