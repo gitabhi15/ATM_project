@@ -4,15 +4,15 @@ public class HomeScreen {
     Scanner sc = new Scanner(System.in);
 
     public void home_page_display() {
-        System.out.println("1. Check Balance");
-        System.out.println("2. Withdraw Cash");
-        System.out.println("3. PIN Change");
-        System.out.println("4. Ultra Fast Cash");
-        System.out.println("5. Utility Bill Payment");
-        System.out.println("6. Update Mobile Phone Number");
-        System.out.println("7. Exit");
+        System.out.println("\n\t\t\t1. Check Balance");
+        System.out.println("\t\t\t2. Withdraw Cash");
+        System.out.println("\t\t\t3. PIN Change");
+        System.out.println("\t\t\t4. Ultra Fast Cash");
+        System.out.println("\t\t\t5. Utility Bill Payment");
+        System.out.println("\t\t\t6. Update Mobile Phone Number");
+        System.out.println("\t\t\t7. Exit");
 
-        System.out.println("Please select an option:");
+        System.out.println("\nPlease select an option:\n");
         int choice = sc.nextInt();
         sc.nextLine();  // Consume newline
 
